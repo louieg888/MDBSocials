@@ -11,13 +11,17 @@ import Firebase
 
 class FirebaseUtilities {
     
-    static func addUser(dictVals: [String: String], password: String) {
+    static func addUser(dictVals: [String: String], password: String, success: @escaping () -> ()) {
         print(dictVals)
         print(password)
         let ref = Database.database().reference()
         ref.child("users").childByAutoId().setValue(dictVals)
         Auth.auth().createUser(withEmail: dictVals["email"]!, password: password, completion: { (user, error) in
-            print(user)
+            if user != nil {
+                Auth.auth().signIn(withEmail: dictVals["email"]!, password: password, completion: {(user, error) in 
+                    success()
+                })
+            }
         })
     }
     

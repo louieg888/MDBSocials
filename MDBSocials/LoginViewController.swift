@@ -108,6 +108,7 @@ class LoginViewController: UIViewController {
             Auth.auth().signIn(withEmail: email, password: self.passwordTextField.text!, completion: { (user, error) in
                 if user != nil {
                     print("successfully logged in!")
+                    self.performSegue(withIdentifier: "fromLoginVCToFeedVC", sender: self)
                 } else {
                     // TODO: Actually make this an alert that clears the data
                     let alertController = UIAlertController(title: "Error", message:

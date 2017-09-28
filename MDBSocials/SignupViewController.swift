@@ -215,7 +215,9 @@ class SignupViewController: UIViewController {
             
             
             
-            FirebaseUtilities.addUser(dictVals: ["username": self.usernameTextField.text!, "name": self.fullNameTextField.text!, "email": self.emailTextField.text!], password: self.passwordOneTextField.text!)
+            FirebaseUtilities.addUser(dictVals: ["username": self.usernameTextField.text!, "name": self.fullNameTextField.text!, "email": self.emailTextField.text!], password: self.passwordOneTextField.text!, success: {
+                self.performSegue(withIdentifier: "fromSignupVCToFeedVC", sender: self)
+            })
         }) { (error) in
             print(error.localizedDescription)
         }
