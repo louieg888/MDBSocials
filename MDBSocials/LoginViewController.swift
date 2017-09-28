@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class LoginViewController: UIViewController {
 
@@ -93,8 +94,42 @@ class LoginViewController: UIViewController {
     
     func verifyLoginInformation() {
         // TODO: Verify login information in firebase.
+        if (someFieldsAreEmpty()) {
+            let alertController = UIAlertController(title: "Error", message:
+                "You still have some empty fields!", preferredStyle: UIAlertControllerStyle.alert)
+            alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
+            
+            self.present(alertController, animated: true, completion: nil)
+            return
+        }
+        
+
+        FirebaseUtilities.getEmailFromUsername(username: usernameTextField.text!, completionClosure: { (email) in
+            Auth.auth().signIn(withEmail: email, password: self.passwordTextField.text!, completion: { (user, error) in
+                if user != nil {
+                    print("successfully logged in!")
+                } else {
+                    // TODO: Actually make this an alert that clears the data
+                    let alertController = UIAlertController(title: "Error", message:
+                        "Incorrect username or password", preferredStyle: UIAlertControllerStyle.alert)
+                    alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
+                    
+                    self.present(alertController, animated: true, completion: nil)
+                    self.clear()
+                    return
+                }
+            })
+        })
     }
     
+    func someFieldsAreEmpty() -> Bool {
+        return usernameTextField.text! == "" || passwordTextField.text! == ""
+    }
+    
+    func clear() {
+        usernameTextField.text = ""
+        passwordTextField.text = ""
+    }
     
 
     /*

@@ -174,6 +174,7 @@ class SignupViewController: UIViewController {
             
             self.present(alertController, animated: true, completion: clearPasswords)
             return
+        // else if fields are empty, add an alert
         } else if (fieldsAreEmpty()) {
             let alertController = UIAlertController(title: "Error", message:
                 "You still have some empty fields!", preferredStyle: UIAlertControllerStyle.alert)
@@ -182,41 +183,9 @@ class SignupViewController: UIViewController {
             self.present(alertController, animated: true, completion: clearPasswords)
             return
         }
-/*
-        // if username is taken, add an alert
-        ref.child("users").child(usernameTextField.text!).observeSingleEvent(of: .value, with: { (snapshot) in
-            let value = snapshot.value as? String
-            if (value != nil) {
-                let alertController = UIAlertController(title: "Error", message:
-                    "Your two passwords do not match.", preferredStyle: UIAlertControllerStyle.alert)
-                alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
-                
-                self.present(alertController, animated: true, completion: self.clearUserAndPass)
-                return
-            }
-        }) { (error) in
-            print(error.localizedDescription)
-        }
         
-        // if email already has an account, add an alert
-        ref.child("users").observeSingleEvent(of: .value, with: { (snapshot) in
-            let value = snapshot.value as? [String:Any]
-            if let users = value {
-                for user in users {
-                    if (user.value as? [String:Any])?["email"] as? String ?? "default" == self.emailTextField.text {
-                        let alertController = UIAlertController(title: "Error", message:
-                            "Your two passwords do not match.", preferredStyle: UIAlertControllerStyle.alert)
-                        alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
-                        
-                        self.present(alertController, animated: true, completion: self.clearUserAndPass)
-                        return
-                    }
-                }
-            }
-        }) { (error) in
-            print(error.localizedDescription)
-        }
-*/
+        // TODO: Regex command to pattern match all email address and perform an alert
+
         // Do all of this checking after you have a few entries
         ref.child("users").observeSingleEvent(of: .value, with: { (snapshot) in
             let value = snapshot.value as? [String:Any]
@@ -243,6 +212,8 @@ class SignupViewController: UIViewController {
                     }
                 }
             }
+            
+            
             
             FirebaseUtilities.addUser(dictVals: ["username": self.usernameTextField.text!, "name": self.fullNameTextField.text!, "email": self.emailTextField.text!], password: self.passwordOneTextField.text!)
         }) { (error) in
