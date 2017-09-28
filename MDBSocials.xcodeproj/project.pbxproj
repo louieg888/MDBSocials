@@ -18,6 +18,7 @@
 		F3D4A6E51F7C71A400B772EB /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3D4A6E41F7C71A400B772EB /* FeedViewController.swift */; };
 		F3D4A6E71F7C720400B772EB /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3D4A6E61F7C720400B772EB /* DetailViewController.swift */; };
 		F3D4A6E91F7C720F00B772EB /* NewSocialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3D4A6E81F7C720F00B772EB /* NewSocialViewController.swift */; };
+		F3D4A6EB1F7CE9CF00B772EB /* LandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3D4A6EA1F7CE9CF00B772EB /* LandingViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		F3D4A6E41F7C71A400B772EB /* FeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		F3D4A6E61F7C720400B772EB /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		F3D4A6E81F7C720F00B772EB /* NewSocialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewSocialViewController.swift; sourceTree = "<group>"; };
+		F3D4A6EA1F7CE9CF00B772EB /* LandingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LandingViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +109,7 @@
 			children = (
 				F3D4A6B41F7C716500B772EB /* AppDelegate.swift */,
 				F3D4A6B61F7C716500B772EB /* SignupViewController.swift */,
+				F3D4A6EA1F7CE9CF00B772EB /* LandingViewController.swift */,
 				F3D4A6E21F7C719400B772EB /* LoginViewController.swift */,
 				F3D4A6E41F7C71A400B772EB /* FeedViewController.swift */,
 				F3D4A6E61F7C720400B772EB /* DetailViewController.swift */,
@@ -275,6 +278,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F3D4A6E31F7C719400B772EB /* LoginViewController.swift in Sources */,
+				F3D4A6EB1F7CE9CF00B772EB /* LandingViewController.swift in Sources */,
 				F3D4A6B71F7C716500B772EB /* SignupViewController.swift in Sources */,
 				F3D4A6E91F7C720F00B772EB /* NewSocialViewController.swift in Sources */,
 				F3D4A6E71F7C720400B772EB /* DetailViewController.swift in Sources */,
