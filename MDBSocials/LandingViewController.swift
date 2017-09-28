@@ -11,7 +11,7 @@ import UIKit
 class LandingViewController: UIViewController {
     
     // logo
-    let mdbSocialsLogo: UIImage = #imageLiteral(resourceName: "logo")
+    let mdbSocialsLogo: UIImage = #imageLiteral(resourceName: "logo_color")
     var logoImageView: UIImageView!
     
     // buttons
