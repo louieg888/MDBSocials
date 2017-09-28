@@ -1,14 +1,18 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="80f-uH-jet">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Landing View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="LandingViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -18,9 +22,134 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
+                    <navigationItem key="navigationItem" id="AMx-NB-Lds"/>
+                    <connections>
+                        <segue destination="z11-zt-Z5N" kind="show" identifier="toSignupVC" id="VbO-Nz-uWD"/>
+                        <segue destination="kE9-ar-YNd" kind="show" identifier="toLoginVC" id="mah-y3-hz6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="820" y="-21"/>
+        </scene>
+        <!--Signup View Controller-->
+        <scene sceneID="evR-E6-lVl">
+            <objects>
+                <viewController id="z11-zt-Z5N" customClass="SignupViewController" customModule="MDBSocials" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Ylw-Mg-Nlg"/>
+                        <viewControllerLayoutGuide type="bottom" id="Jph-F9-95h"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="TfS-9K-60f">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <segue destination="VfE-h5-oJd" kind="show" identifier="fromSignupVCToFeedVC" id="rUu-5M-zOl"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HI2-Pb-oJ4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1799" y="-16"/>
+        </scene>
+        <!--Login View Controller-->
+        <scene sceneID="PAn-8M-Ujx">
+            <objects>
+                <viewController id="kE9-ar-YNd" customClass="LoginViewController" customModule="MDBSocials" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="T3n-pe-IG6"/>
+                        <viewControllerLayoutGuide type="bottom" id="sax-9H-Jx0"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="u2H-MB-G9Z">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <segue destination="VfE-h5-oJd" kind="show" identifier="fromLoginVCToFeedVC" id="ifE-rJ-hfD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YpZ-g7-Gwi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="820" y="772"/>
+        </scene>
+        <!--Feed View Controller-->
+        <scene sceneID="npv-d7-XEc">
+            <objects>
+                <viewController id="VfE-h5-oJd" customClass="FeedViewController" customModule="MDBSocials" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ENy-7a-3Bl"/>
+                        <viewControllerLayoutGuide type="bottom" id="Egl-wc-h4j"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="cQA-fU-qKa">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <segue destination="5fg-1k-V9g" kind="show" identifier="toNewSocialVC" id="tVb-ym-62m"/>
+                        <segue destination="Yaj-yk-jqa" kind="show" identifier="toDetailVC" id="TKB-jw-KcT"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ma2-C7-gQn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1798" y="771"/>
+        </scene>
+        <!--Detail View Controller-->
+        <scene sceneID="R82-h0-izA">
+            <objects>
+                <viewController id="Yaj-yk-jqa" customClass="DetailViewController" customModule="MDBSocials" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="OmT-uN-ACg"/>
+                        <viewControllerLayoutGuide type="bottom" id="J5d-6T-Rnz"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="dEr-Fq-87e">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vEO-I7-ad9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1798" y="1594"/>
+        </scene>
+        <!--New Social View Controller-->
+        <scene sceneID="gdV-aY-mzF">
+            <objects>
+                <viewController id="5fg-1k-V9g" customClass="NewSocialViewController" customModule="MDBSocials" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jdk-Ty-Qch"/>
+                        <viewControllerLayoutGuide type="bottom" id="4Uh-z9-6DM"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="yPa-Se-27P">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wjn-WY-MDI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2988" y="767"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="qjj-N8-p56">
+            <objects>
+                <navigationController id="80f-uH-jet" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="pm6-T6-Ua7">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="v2v-QZ-KJF"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ru0-NF-IeB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-25" y="-21"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="rUu-5M-zOl"/>
+    </inferredMetricsTieBreakers>
 </document>
