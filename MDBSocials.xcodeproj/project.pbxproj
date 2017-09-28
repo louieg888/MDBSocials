@@ -8,12 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		F3D4A6B51F7C716500B772EB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3D4A6B41F7C716500B772EB /* AppDelegate.swift */; };
-		F3D4A6B71F7C716500B772EB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3D4A6B61F7C716500B772EB /* ViewController.swift */; };
+		F3D4A6B71F7C716500B772EB /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3D4A6B61F7C716500B772EB /* SignupViewController.swift */; };
 		F3D4A6BA1F7C716500B772EB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3D4A6B81F7C716500B772EB /* Main.storyboard */; };
 		F3D4A6BC1F7C716500B772EB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3D4A6BB1F7C716500B772EB /* Assets.xcassets */; };
 		F3D4A6BF1F7C716500B772EB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3D4A6BD1F7C716500B772EB /* LaunchScreen.storyboard */; };
 		F3D4A6CA1F7C716500B772EB /* MDBSocialsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3D4A6C91F7C716500B772EB /* MDBSocialsTests.swift */; };
 		F3D4A6D51F7C716500B772EB /* MDBSocialsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3D4A6D41F7C716500B772EB /* MDBSocialsUITests.swift */; };
+		F3D4A6E31F7C719400B772EB /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3D4A6E21F7C719400B772EB /* LoginViewController.swift */; };
+		F3D4A6E51F7C71A400B772EB /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3D4A6E41F7C71A400B772EB /* FeedViewController.swift */; };
+		F3D4A6E71F7C720400B772EB /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3D4A6E61F7C720400B772EB /* DetailViewController.swift */; };
+		F3D4A6E91F7C720F00B772EB /* NewSocialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3D4A6E81F7C720F00B772EB /* NewSocialViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +40,7 @@
 /* Begin PBXFileReference section */
 		F3D4A6B11F7C716500B772EB /* MDBSocials.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MDBSocials.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3D4A6B41F7C716500B772EB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F3D4A6B61F7C716500B772EB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F3D4A6B61F7C716500B772EB /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		F3D4A6B91F7C716500B772EB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F3D4A6BB1F7C716500B772EB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F3D4A6BE1F7C716500B772EB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,6 +51,10 @@
 		F3D4A6D01F7C716500B772EB /* MDBSocialsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MDBSocialsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3D4A6D41F7C716500B772EB /* MDBSocialsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDBSocialsUITests.swift; sourceTree = "<group>"; };
 		F3D4A6D61F7C716500B772EB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F3D4A6E21F7C719400B772EB /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		F3D4A6E41F7C71A400B772EB /* FeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
+		F3D4A6E61F7C720400B772EB /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		F3D4A6E81F7C720F00B772EB /* NewSocialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewSocialViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,7 +106,11 @@
 			isa = PBXGroup;
 			children = (
 				F3D4A6B41F7C716500B772EB /* AppDelegate.swift */,
-				F3D4A6B61F7C716500B772EB /* ViewController.swift */,
+				F3D4A6B61F7C716500B772EB /* SignupViewController.swift */,
+				F3D4A6E21F7C719400B772EB /* LoginViewController.swift */,
+				F3D4A6E41F7C71A400B772EB /* FeedViewController.swift */,
+				F3D4A6E61F7C720400B772EB /* DetailViewController.swift */,
+				F3D4A6E81F7C720F00B772EB /* NewSocialViewController.swift */,
 				F3D4A6B81F7C716500B772EB /* Main.storyboard */,
 				F3D4A6BB1F7C716500B772EB /* Assets.xcassets */,
 				F3D4A6BD1F7C716500B772EB /* LaunchScreen.storyboard */,
@@ -262,7 +274,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F3D4A6B71F7C716500B772EB /* ViewController.swift in Sources */,
+				F3D4A6E31F7C719400B772EB /* LoginViewController.swift in Sources */,
+				F3D4A6B71F7C716500B772EB /* SignupViewController.swift in Sources */,
+				F3D4A6E91F7C720F00B772EB /* NewSocialViewController.swift in Sources */,
+				F3D4A6E71F7C720400B772EB /* DetailViewController.swift in Sources */,
+				F3D4A6E51F7C71A400B772EB /* FeedViewController.swift in Sources */,
 				F3D4A6B51F7C716500B772EB /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
