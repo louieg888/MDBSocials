@@ -70,7 +70,7 @@ class FirebaseUtilities {
             for child in snapshot.children {
                 let unwrappedChild = child as! DataSnapshot
                 if (unwrappedChild.value as! Dictionary)["email"]! == (Auth.auth().currentUser?.email!) {
-                    var returnValue: [String:String] = [
+                    let returnValue: [String:String] = [
                         "email": (unwrappedChild.value as! Dictionary)["email"]!,
                         "username": (unwrappedChild.value as! Dictionary)["username"]!,
                         "name": (unwrappedChild.value as! Dictionary)["name"]!,
@@ -85,9 +85,8 @@ class FirebaseUtilities {
     }
     
     static func addPost(post: Post, image: UIImage) {
-        let usersRef = Database.database().reference().child("users")
+        // let usersRef = Database.database().reference().child("users")
         let postsRef = Database.database().reference().child("posts").childByAutoId()
-        // TODO: upload the image to storage and add the URL to the post object. For now just don't deal with it.
         postsRef.setValue(post.postDict)
     }
     
@@ -98,6 +97,46 @@ class FirebaseUtilities {
         imgMeta.contentType = "image/jpg"
         Storage.storage().reference().child(path).putData((UIImageJPEGRepresentation(image, 1.0))!, metadata: imgMeta)
         callback(path)
+    }
+    
+    static func getNumberOfPosts(callback: @escaping (Int) -> ()) {
+        let postsRef = Database.database().reference().child("posts")
+        postsRef.observeSingleEvent(of: .value, with: { (snapshot) in
+            callback(Int(snapshot.childrenCount))
+        })
+    }
+    
+    static func getPostForIndex(indexPath: IndexPath, callback: @escaping (Post) -> ()) {
+        let index = indexPath.row
+        Database.database().reference().child("posts")
+            .queryOrdered(byChild: "timePosted")
+            .queryLimited(toLast: UInt(50))
+            .observeSingleEvent(of: .value, with: { (snapshot) in
+                /*
+                for child in (snapshot as! DataSnapshot).children.allObjects {
+                    print(ch)
+                }
+                */
+                let newIndex = Int(Int(snapshot.childrenCount) - 1) - index
+                let desiredValue = (snapshot.children.allObjects[newIndex] as! DataSnapshot).value as! [String:Any]
+                let newPost = Post(id: (snapshot.children.allObjects[newIndex] as! DataSnapshot).key, postDict: desiredValue)
+                print(desiredValue)
+                callback(newPost)
+
+                
+            })
+    }
+    
+    static func retrieveImageFromUrl(url: String, callback: @escaping (UIImage) -> ()) {
+        Storage.storage().reference(withPath: url).getData(maxSize: 1 * 1024 * 1024) { data, error in
+            if let error = error {
+                print(error.localizedDescription)
+            } else {
+                // Data for "images/island.jpg" is returned
+                let image = UIImage(data: data!)!
+                callback(image)
+            }
+        }
     }
 }
 

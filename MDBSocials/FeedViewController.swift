@@ -21,10 +21,17 @@ class FeedViewController: UIViewController {
         self.navigationItem.setHidesBackButton(true, animated: true)
         self.title = "Social Feed"
         self.addNewPostButton()
-        
-        
+        self.updateNumberOfPosts()
         self.setupTableView()
         // Do any additional setup after loading the view.
+    }
+
+    func updateNumberOfPosts() {
+        numCells = 0
+        FirebaseUtilities.getNumberOfPosts(callback: { (numPosts) in
+            self.numCells = numPosts
+            self.tableView.reloadData()
+        })
     }
     
     func addNewPostButton() {
@@ -44,29 +51,21 @@ class FeedViewController: UIViewController {
     
     func setupTableView() {
         tableView = UITableView()
-        tableView.frame = self.view.frame
+        tableView.frame = CGRect(x: 0, y: 60, width: self.view.frame.width, height: self.view.frame.height - 60)
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(FeedTableViewCell.self, forCellReuseIdentifier: "feedCell")
+        view.addSubview(tableView)
     }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // if a cell is selected
-        if segue.identifier == "toDetailVC" {
-            let detailVC = segue.destination as! DetailViewController
-            detailVC.post = (self.tableView.cellForRow(at: self.tableView.indexPathForSelectedRow!) as! FeedTableViewCell).post
-        }
-    }
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        // if a cell is selected
+//        if segue.identifier == "toDetailVC" {
+//            let detailVC = segue.destination as! DetailViewController
+//            detailVC.post = (self.tableView.cellForRow(at: self.tableView.indexPathForSelectedRow!) as! FeedTableViewCell).post
+//        }
+//    }
 
 }
 
@@ -77,9 +76,11 @@ extension FeedViewController : UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // return number of cells; keep a variable for that
-        // perhaps start at count; do a DB call
         return numCells
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -93,6 +94,34 @@ extension FeedViewController : UITableViewDelegate, UITableViewDataSource {
             subview.removeFromSuperview()
         }
         cell.awakeFromNib()
+        self.updateAllFieldsAsynchronously(indexPath: indexPath, cell: cell)
+        
         return cell
+    }
+    
+    func updateAllFieldsAsynchronously(indexPath: IndexPath, cell: FeedTableViewCell) {
+        FirebaseUtilities.getPostForIndex(indexPath: indexPath, callback: { (post) in
+            cell.post = post
+            // load and update cell eventNameLabel
+            cell.eventNameLabel.text = post.postName
+            
+            // load and update cell eventCreatorLabel
+            cell.eventCreatorLabel.text = "Created by \(String(describing: post.posterName!))"
+            
+            // load and update the interested count
+            if let inters = cell.post.interested {
+                // do some cool stuff
+                // TODO: Implement
+            }
+            
+            // load and update image
+            FirebaseUtilities.retrieveImageFromUrl(url: post.imageUrl!, callback: { (img) in
+                DispatchQueue.main.async {
+                    cell.eventImageView.image = img
+                }
+                //self.tableView.reloadRows(at: [indexPath], with: UITableViewRowAnimation.automatic)
+            })
+            
+        })
     }
 }
