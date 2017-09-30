@@ -40,5 +40,64 @@ class FirebaseUtilities {
             print(error.localizedDescription)
         }
     }
+    
+    static func getUID(callback: @escaping (String) -> ()) {
+        Database.database().reference().child("users").observeSingleEvent(of: .value, with: { (snapshot) in
+            for child in snapshot.children {
+                let unwrappedChild = child as! DataSnapshot
+                if (unwrappedChild.value as! Dictionary)["email"]! == (Auth.auth().currentUser?.email!) {
+                    callback(unwrappedChild.key)
+                    break
+                }
+            }
+        })
+    }
+    
+    static func getName(callback: @escaping (String) -> ()) {
+        Database.database().reference().child("users").observeSingleEvent(of: .value, with: { (snapshot) in
+            for child in snapshot.children {
+                let unwrappedChild = child as! DataSnapshot
+                if (unwrappedChild.value as! Dictionary)["email"]! == (Auth.auth().currentUser?.email!) {
+                    callback((unwrappedChild.value as! Dictionary)["name"]!)
+                    break
+                }
+            }
+        })
+    }
+    
+    static func getUserInfo(callback: @escaping ([String:String]) -> ()) {
+        Database.database().reference().child("users").observeSingleEvent(of: .value, with: { (snapshot) in
+            for child in snapshot.children {
+                let unwrappedChild = child as! DataSnapshot
+                if (unwrappedChild.value as! Dictionary)["email"]! == (Auth.auth().currentUser?.email!) {
+                    var returnValue: [String:String] = [
+                        "email": (unwrappedChild.value as! Dictionary)["email"]!,
+                        "username": (unwrappedChild.value as! Dictionary)["username"]!,
+                        "name": (unwrappedChild.value as! Dictionary)["name"]!,
+                        "uid": unwrappedChild.key
+                    ]
+                    
+                    callback(returnValue)
+                    break
+                }
+            }
+        })
+    }
+    
+    static func addPost(post: Post, image: UIImage) {
+        let usersRef = Database.database().reference().child("users")
+        let postsRef = Database.database().reference().child("posts").childByAutoId()
+        // TODO: upload the image to storage and add the URL to the post object. For now just don't deal with it.
+        postsRef.setValue(post.postDict)
+    }
+    
+    static func storePhotoAndGetUrl(image: UIImage, callback: (String) -> ()) {
+        let uuid = UUID.init().description
+        let path = "images/\(uuid)/img.jpg"
+        let imgMeta = StorageMetadata()
+        imgMeta.contentType = "image/jpg"
+        Storage.storage().reference().child(path).putData((UIImageJPEGRepresentation(image, 1.0))!, metadata: imgMeta)
+        callback(path)
+    }
 }
 

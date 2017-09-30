@@ -10,6 +10,7 @@ import UIKit
 
 class FeedTableViewCell: UITableViewCell {
     var post: Post!
+    var cellImage: UIImage!
 
     override func awakeFromNib() {
         super.awakeFromNib()

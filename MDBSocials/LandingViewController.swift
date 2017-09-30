@@ -25,6 +25,35 @@ class LandingViewController: UIViewController {
         addMDBSocialsLogo()
         addSignUpButton()
         addLoginButton()
+        
+        // TESTING METHODS
+        
+        /*
+         var postName: String?
+         var postDescription: String?
+         var imageUrl: String?
+         var posterId: String?
+         var posterName: String?
+         var id: String?
+         var interested: [String:[String]]? // string of user ids
+         var timePosted: String?
+         var rsvps: [String:[String]]? // string of user ids
+         var postDict: [String:Any]?
+ 
+        
+        var postDictEx: [String:Any] = [
+            "postName": "name",
+            "postDescription": "desc",
+            "imageUrl": "www.google.com",
+            "posterId": "41235",
+            "interested": ["interested": []],
+            "timePosted": "131232513215",
+            "rvsps": ["rsvps":[]]
+        ]
+        var post = Post(id: "23", postDict: postDictEx)
+        print("STRING")
+        print(post.getJSONifiedPostDict())
+        */
     }
     
     override func viewDidDisappear(_ animated: Bool) {

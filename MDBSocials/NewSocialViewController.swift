@@ -7,8 +7,11 @@
 //
 
 import UIKit
+import MobileCoreServices
+import FirebaseAuth
 
-class NewSocialViewController: UIViewController {
+
+class NewSocialViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     var eventNameTextField: TextField!
     var descriptionTextView: UITextView!
@@ -22,6 +25,7 @@ class NewSocialViewController: UIViewController {
     var endDate: Date!
     
     var eventImageView: UIImageView!
+    var picker: UIImagePickerController = UIImagePickerController()
     var submitButton: UIButton!
     
     let placeholderTextColor = UIColor(colorLiteralRed: 200/255, green: 200/255, blue: 200/255, alpha: 1)
@@ -38,8 +42,50 @@ class NewSocialViewController: UIViewController {
         addEndDateLabel()
         addEndDateTextField()
         addEventImageView()
-        // addStartDatePicker()
-        // Do any additional setup after loading the view.
+        
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Add", style: .plain, target: self, action: #selector(createPost))
+    }
+    
+    func createPost() {
+        /*    
+         var postName: String?
+         var postDescription: String?
+         var imageUrl: String?
+         var posterId: String?
+         var posterName: String?
+         var id: String?
+         var image: UIImage?
+         var intersted: [String]? // string of user ids
+         var timePosted: Int?
+        */
+        
+        //TODO: fix this shit
+        
+        var postDict: [String:Any] = [
+            "postName": eventNameTextField.text!,
+            "postDescription": descriptionTextView.text!,
+            "imageUrl": "", // update this in the addpost method.
+            "posterId": Auth.auth().currentUser?.uid ?? "posterId",
+            "posterName": "default",    // fix
+            "interested": [],
+            "timePosted": String(NSDate().timeIntervalSince1970),
+            "startTime" : startDateLabel.text!,
+            "endTime": endDateLabel.text!
+        ]
+        
+        FirebaseUtilities.getUserInfo(callback: { (userInfo) in
+            let uid = userInfo["uid"]
+            let name = userInfo["name"]
+            postDict["posterId"] = uid
+            postDict["posterName"] = name
+            
+            FirebaseUtilities.storePhotoAndGetUrl(image: self.eventImageView.image!, callback: { (imgUrl) in
+                postDict["imageUrl"] = imgUrl
+                let newPost = Post(id: (Auth.auth().currentUser?.uid)!, postDict: postDict)
+                FirebaseUtilities.addPost(post: newPost, image: self.eventImageView.image!)
+                self.navigationController?.popViewController(animated: true)
+            })
+        })
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -120,6 +166,7 @@ class NewSocialViewController: UIViewController {
             width: view.frame.width * 0.8 - startDateLabel.frame.width - 10,
             height: startDateLabel.frame.height
         )
+        startDateTextField.layer.cornerRadius = 16
         startDateTextField.delegate = self
         startDateTextField.backgroundColor = UIColor.white
         startDateTextField.placeholder = "tap here"
@@ -151,6 +198,7 @@ class NewSocialViewController: UIViewController {
             width: view.frame.width * 0.8 - startDateLabel.frame.width - 10,
             height: startDateLabel.frame.height
         )
+        endDateTextField.layer.cornerRadius = 16
         endDateTextField.backgroundColor = UIColor.white
         endDateTextField.delegate = self
         endDateTextField.placeholder = "tap here"
@@ -187,25 +235,22 @@ class NewSocialViewController: UIViewController {
         alertController.addAction(cancelAction)
         
         let chooseFromPhotoRoll = UIAlertAction(title: "Choose From Photo Roll", style: .default) { action in
-            // ...
+            self.picker.delegate = self
+            self.picker.allowsEditing = false
+            self.picker.sourceType = .photoLibrary
+            self.present(self.picker, animated: true, completion: nil)
         }
+        
         alertController.addAction(chooseFromPhotoRoll)
         
         let takeNewPhoto = UIAlertAction(title: "Take New Photo", style: .default) { action in
-            // ...
-        }
+            self.picker.delegate = self
+            self.picker.allowsEditing = false
+            self.picker.sourceType = .camera
+            self.present(self.picker, animated: true, completion: nil)        }
         alertController.addAction(takeNewPhoto)
         
-        self.present(alertController, animated: true) {
-            // ...
-        }
-        
-        
-    }
-    
-    
-    func addSubmitButton() {
-        
+        self.present(alertController, animated: true)
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -255,5 +300,17 @@ extension NewSocialViewController : UITextFieldDelegate {
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         performSegue(withIdentifier: "toDatePickerVC", sender: self)
         return false
+    }
+}
+
+extension NewSocialViewController {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        let chosenImage = info[UIImagePickerControllerOriginalImage] as! UIImage
+        eventImageView.image = chosenImage
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
     }
 }

@@ -12,7 +12,7 @@
         <!--Landing View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="LandingViewController" customModule="MDBSocials" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LandingViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="LandingViewController" customModule="MDBSocials" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -57,13 +57,14 @@
         <!--Navigation Controller-->
         <scene sceneID="ren-m2-TaM">
             <objects>
-                <navigationController id="BXA-Kw-JrS" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="NavigationViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BXA-Kw-JrS" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="HF0-ND-XM7">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="bMo-yP-aY5"/>
+                        <segue destination="VfE-h5-oJd" kind="show" identifier="fromNavigationVCToFeedVC" id="Ld5-ZA-bDI"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s3Y-WC-567" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -95,7 +96,7 @@
         <!--Feed View Controller-->
         <scene sceneID="npv-d7-XEc">
             <objects>
-                <viewController id="VfE-h5-oJd" customClass="FeedViewController" customModule="MDBSocials" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FeedViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="VfE-h5-oJd" customClass="FeedViewController" customModule="MDBSocials" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ENy-7a-3Bl"/>
                         <viewControllerLayoutGuide type="bottom" id="Egl-wc-h4j"/>
@@ -173,6 +174,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="ifE-rJ-hfD"/>
+        <segue reference="Ld5-ZA-bDI"/>
     </inferredMetricsTieBreakers>
 </document>
