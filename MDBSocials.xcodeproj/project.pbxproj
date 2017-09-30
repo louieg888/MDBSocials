@@ -27,6 +27,9 @@
 		F3D4A6F41F7D125300B772EB /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3D4A6F31F7D125300B772EB /* User.swift */; };
 		F3D4A6F61F7D12BC00B772EB /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3D4A6F51F7D12BC00B772EB /* Post.swift */; };
 		F3D4A6F91F7D274500B772EB /* FirebaseUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3D4A6F81F7D274500B772EB /* FirebaseUtilities.swift */; };
+		F3D4A6FB1F7D707700B772EB /* FeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3D4A6FA1F7D707700B772EB /* FeedTableViewCell.swift */; };
+		F3D4A6FD1F7F058D00B772EB /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3D4A6FC1F7F058D00B772EB /* DatePickerViewController.swift */; };
+		F3D4A6FF1F7F41DC00B772EB /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F3D4A6FE1F7F41DC00B772EB /* Default-568h@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +82,9 @@
 		F3D4A6F31F7D125300B772EB /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		F3D4A6F51F7D12BC00B772EB /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		F3D4A6F81F7D274500B772EB /* FirebaseUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseUtilities.swift; sourceTree = "<group>"; };
+		F3D4A6FA1F7D707700B772EB /* FeedTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedTableViewCell.swift; sourceTree = "<group>"; };
+		F3D4A6FC1F7F058D00B772EB /* DatePickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePickerViewController.swift; sourceTree = "<group>"; };
+		F3D4A6FE1F7F41DC00B772EB /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +141,7 @@
 		F3D4A6A81F7C716500B772EB = {
 			isa = PBXGroup;
 			children = (
+				F3D4A6FE1F7F41DC00B772EB /* Default-568h@2x.png */,
 				F3D4A6B31F7C716500B772EB /* MDBSocials */,
 				F3D4A6C81F7C716500B772EB /* MDBSocialsTests */,
 				F3D4A6D31F7C716500B772EB /* MDBSocialsUITests */,
@@ -161,6 +168,7 @@
 				F3D4A6F71F7D159E00B772EB /* Model */,
 				F3D4A6EE1F7D05C100B772EB /* View Controllers */,
 				F3D4A6EC1F7D022D00B772EB /* TextField.swift */,
+				F3D4A6FA1F7D707700B772EB /* FeedTableViewCell.swift */,
 				F3D4A6F81F7D274500B772EB /* FirebaseUtilities.swift */,
 				F3D4A6B81F7C716500B772EB /* Main.storyboard */,
 				F3D4A6BB1F7C716500B772EB /* Assets.xcassets */,
@@ -198,6 +206,7 @@
 				F3D4A6E41F7C71A400B772EB /* FeedViewController.swift */,
 				F3D4A6E61F7C720400B772EB /* DetailViewController.swift */,
 				F3D4A6E81F7C720F00B772EB /* NewSocialViewController.swift */,
+				F3D4A6FC1F7F058D00B772EB /* DatePickerViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -333,6 +342,7 @@
 				F3D4A6BF1F7C716500B772EB /* LaunchScreen.storyboard in Resources */,
 				F3D4A6F01F7D0B4600B772EB /* GoogleService-Info.plist in Resources */,
 				F3D4A6BC1F7C716500B772EB /* Assets.xcassets in Resources */,
+				F3D4A6FF1F7F41DC00B772EB /* Default-568h@2x.png in Resources */,
 				F3D4A6BA1F7C716500B772EB /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -515,6 +525,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				F3D4A6E31F7C719400B772EB /* LoginViewController.swift in Sources */,
+				F3D4A6FD1F7F058D00B772EB /* DatePickerViewController.swift in Sources */,
+				F3D4A6FB1F7D707700B772EB /* FeedTableViewCell.swift in Sources */,
 				F3D4A6EB1F7CE9CF00B772EB /* LandingViewController.swift in Sources */,
 				F3D4A6B71F7C716500B772EB /* SignupViewController.swift in Sources */,
 				F3D4A6F91F7D274500B772EB /* FirebaseUtilities.swift in Sources */,
