@@ -184,8 +184,6 @@ class SignupViewController: UIViewController {
             return
         }
         
-        // TODO: Regex command to pattern match all email address and perform an alert
-
         // Do all of this checking after you have a few entries
         ref.child("users").observeSingleEvent(of: .value, with: { (snapshot) in
             let value = snapshot.value as? [String:Any]

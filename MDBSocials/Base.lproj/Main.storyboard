@@ -64,7 +64,7 @@
                     </navigationBar>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="bMo-yP-aY5"/>
-                        <segue destination="VfE-h5-oJd" kind="show" identifier="fromNavigationVCToFeedVC" id="Ld5-ZA-bDI"/>
+                        <segue destination="VfE-h5-oJd" kind="show" identifier="fromNavigationVCToFeedVC" animates="NO" id="Ld5-ZA-bDI"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s3Y-WC-567" userLabel="First Responder" sceneMemberID="firstResponder"/>

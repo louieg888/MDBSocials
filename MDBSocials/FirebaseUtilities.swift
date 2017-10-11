@@ -86,6 +86,7 @@ class FirebaseUtilities {
     
     static func addPost(post: Post, image: UIImage) {
         // let usersRef = Database.database().reference().child("users")
+        
         let postsRef = Database.database().reference().child("posts").childByAutoId()
         postsRef.setValue(post.postDict)
     }
@@ -128,7 +129,7 @@ class FirebaseUtilities {
     }
     
     static func retrieveImageFromUrl(url: String, callback: @escaping (UIImage) -> ()) {
-        Storage.storage().reference(withPath: url).getData(maxSize: 1 * 1024 * 1024) { data, error in
+        Storage.storage().reference(withPath: url).getData(maxSize: 100 * 1024 * 1024) { data, error in
             if let error = error {
                 print(error.localizedDescription)
             } else {

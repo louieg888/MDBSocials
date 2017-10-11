@@ -73,7 +73,7 @@ class FeedTableViewCell: UITableViewCell {
         eventCreatorLabel.text = "Created by: (Creator)"
         contentView.addSubview(eventCreatorLabel)
     }
-    
+        
     func setupInterestedButton() {
         interestedButton = UIButton()
         interestedButton.frame = CGRect(
@@ -82,7 +82,7 @@ class FeedTableViewCell: UITableViewCell {
             width: 250,
             height: 30
         )
-        interestedButton.setTitle("Interested (0)", for: .normal)
+        interestedButton.setTitle("0 people interested", for: .normal)
         interestedButton.layer.cornerRadius = 5
         interestedButton.setTitleColor(UIColor.black, for: .normal)
         interestedButton.layer.borderWidth = 1

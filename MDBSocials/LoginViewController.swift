@@ -93,7 +93,6 @@ class LoginViewController: UIViewController {
     }
     
     func verifyLoginInformation() {
-        // TODO: Verify login information in firebase.
         if (someFieldsAreEmpty()) {
             let alertController = UIAlertController(title: "Error", message:
                 "You still have some empty fields!", preferredStyle: UIAlertControllerStyle.alert)

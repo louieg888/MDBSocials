@@ -121,22 +121,6 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MDBSocials/AppDelegate.swift"
-            timestampString = "528466286.433812"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "24"
-            endingLineNumber = "24"
-            landmarkName = "application(_:didFinishLaunchingWithOptions:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "MDBSocials/NewSocialViewController.swift"
             timestampString = "528471489.673557"
             startingColumnNumber = "9223372036854775807"
@@ -202,11 +186,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MDBSocials/FeedViewController.swift"
-            timestampString = "528494728.52077"
+            timestampString = "529380166.086295"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "92"
-            endingLineNumber = "92"
+            startingLineNumber = "93"
+            endingLineNumber = "93"
             landmarkName = "tableView(_:cellForRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -472,11 +456,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MDBSocials/FeedViewController.swift"
-            timestampString = "528497225.240443"
+            timestampString = "529380166.086295"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "121"
-            endingLineNumber = "121"
+            startingLineNumber = "122"
+            endingLineNumber = "122"
             landmarkName = "updateAllFieldsAsynchronously(indexPath:cell:)"
             landmarkType = "7">
             <Locations>
@@ -488,11 +472,11 @@
                   moduleName = "MDBSocials"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/louie_mc/Documents/UCB/MDB/Week%203/MDBSocials/MDBSocials/FeedViewController.swift"
-                  timestampString = "528497225.367722"
+                  timestampString = "529380185.09921"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "121"
-                  endingLineNumber = "121"
+                  startingLineNumber = "122"
+                  endingLineNumber = "122"
                   offsetFromSymbolStart = "240">
                </Location>
                <Location
@@ -503,11 +487,11 @@
                   moduleName = "MDBSocials"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/louie_mc/Documents/UCB/MDB/Week%203/MDBSocials/MDBSocials/FeedViewController.swift"
-                  timestampString = "528497225.369034"
+                  timestampString = "529380185.100437"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "121"
-                  endingLineNumber = "121"
+                  startingLineNumber = "122"
+                  endingLineNumber = "122"
                   offsetFromSymbolStart = "169">
                </Location>
             </Locations>

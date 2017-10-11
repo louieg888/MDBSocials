@@ -51,7 +51,7 @@ class FeedViewController: UIViewController {
     
     func setupTableView() {
         tableView = UITableView()
-        tableView.frame = CGRect(x: 0, y: 60, width: self.view.frame.width, height: self.view.frame.height - 60)
+        tableView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(FeedTableViewCell.self, forCellReuseIdentifier: "feedCell")
@@ -59,14 +59,15 @@ class FeedViewController: UIViewController {
     }
 
     
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        // if a cell is selected
-//        if segue.identifier == "toDetailVC" {
-//            let detailVC = segue.destination as! DetailViewController
-//            detailVC.post = (self.tableView.cellForRow(at: self.tableView.indexPathForSelectedRow!) as! FeedTableViewCell).post
-//        }
-//    }
-
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // if a cell is selected
+        
+        if segue.identifier == "toDetailVC" {
+            let detailVC = segue.destination as! DetailViewController
+            let cell = (self.tableView.cellForRow(at: self.tableView.indexPathForSelectedRow!) as! FeedTableViewCell)
+            detailVC.post = cell.post
+        }
+    }
 }
 
 extension FeedViewController : UITableViewDelegate, UITableViewDataSource {
